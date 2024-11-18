@@ -104,7 +104,7 @@ pages
 
 ### 后端
 
-主要利用flask，postgres进行开发，实现调用部署华为云modelarts，数据库存入历史检测数据，根据modelarts返回的瑕疵坐标定位并绘制瑕疵框等功能
+主要利用flask，postgres进行开发，实现调用华为云modelarts，数据库存入历史检测数据，根据modelarts返回的瑕疵坐标定位并绘制瑕疵框等功能
 
 #### modelarts
 
@@ -156,11 +156,11 @@ decode鸿蒙req body中的`TypedArray`类型字节字符串，利用`io.BytesIO`
 
 ## 软件架构图
 
-![image-20241118173414202](../../../Blog/source/img/image-20241118173414202.png)
+![image-20241118173414202](架构图.png)
 
 ## 技术亮点
 
-### modelarts部署与调用
+### modelarts调用
 
 ModelArts平台有两种鉴权模式：
 
