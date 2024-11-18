@@ -1,0 +1,103 @@
+<div class="container">
+    <tabs>
+        <tab-content class="tabContent">
+            <div class="Page0" id="Page0">
+                <div class="historyImage">
+                    <text>历史速览</text>
+                    <div class="lastImage">
+                        <image src="{{ lastImage }}" id="lastImage" style="display: {{ isLoading ? 'none' : 'block' }}"></image>
+                        <progress id="loadingProgress" type="horizontal" percent="{{percent}}" style="display: {{ isLoading ? 'block' : 'none' }}"></progress>
+                    </div>
+                    <div class="recentImagesContainer">
+                        <swiper class="recentImages" index="{{ currentIndex }}" loop="false">
+                            <div class="imageGroup" for="{{ [0, 1] }}">
+                                <image for="{{ recentImages.slice($item * 3, ($item + 1) * 3) }}"
+                                       src="{{ $item }}"
+                                       id="image-{{ $idx }}"
+                                       onclick="selectImage($item, $idx)">
+                                </image>
+                            </div>
+                        </swiper>
+                    </div>
+                    <dialog class="dialogClass" dragable="true" id="dialogId">
+                        <div class="cueContent">
+                            <text class="newPcb">检测到新的异常pcb板!</text>
+                            <text class="newDialog">当前异常数：{{ dialogShow }}</text>
+                        </div>
+                    </dialog>
+                </div>
+                <div class="full-screen-container" if="{{ fullScreen }}">
+                    <image src="{{ selectedImage }}"
+                           id="full-screen-image"
+                           class="full-screen-image"
+                           style="transform: scale({{ imageScale }}); opacity: {{ imageOpacity }}"
+                           onclick="closeFullScreen">
+                    </image>
+                </div>
+            </div>
+            <div class="Page1" id="Page1">
+                <div id="Page1Title">
+                    <text>请拍摄电路板</text>
+                </div>
+                <div class="cameraContainer">
+                    <camera id="camera" flash="on" deviceposition="back" onerror="cameraError"></camera>
+                </div>
+                <div class="Page1Button">
+                    <button class="shoot" onclick="takePhoto()"> 拍摄 </button>
+                </div>
+            </div>
+            <div class="Page2" id="Page2">
+                <div id="Page2Title">
+                    <div id="Page2TitleText">
+                        <text>检测时间</text>
+                        <image src="/common/images/ic_public_input_search.svg" class="input-search"></image>
+                        <picker
+                            type="date"
+                            value="{{ dateValue }}"
+                            id="Page2Input"
+                            start="2000-9-4"
+                            end="2100-9-4"
+                            @change="dateOnChange"
+                        >
+                        </picker>
+                    </div>
+                    <button id="Page2Button" onclick="getAllHistories(e,1)">查询</button>
+                </div>
+                <divider class="divider"></divider>
+                <div id="Page2Content">
+                    <list id="list" divider="true">
+                        <list-item class="listItem" for="{{ historyList }}" onclick="imageDetail({{ $item.imageName }})">
+                            <div class="ld">
+                                <div>
+                                    <div class="bg"><text class="listItemIndex">{{ $item.number }}</text></div>
+                                    <text class="imageName">{{ $item.imageName }}</text>
+                                </div>
+                                <div class="right">
+                                    <text class="errorNum">{{ $item.errorNum }}</text>
+                                    <image class="right-arrow" src="/common/images/ic_public_arrow_right.svg"></image>
+                                </div>
+                            </div>
+                        </list-item>
+                    </list>
+                </div>
+            </div>
+        </tab-content>
+        <tab-bar class="tabBar">
+            <div class="tabButton" id="PageButton0" onclick="switchPages('Page0')">
+                <image src="/common/images/Page0_Black.png" class="icon {{ pages.Page0.icon[0] }}"></image>
+                <image src="/common/images/Page0_Blue.png" class="icon {{ pages.Page0.icon[1] }}"></image>
+                <text class="bottomTex {{ pages.Page0.color }}" ref="sy">首页</text>
+            </div>
+            <div class="tabButton" id="PageButton1" onclick="switchPages('Page1')">
+                <image src="/common/images/Page1_Black.png" class="icon {{ pages.Page1.icon[0] }}"></image>
+                <image src="/common/images/Page1_Blue.png" class="icon {{ pages.Page1.icon[1] }}"></image>
+                <text class="bottomTex {{ pages.Page1.color }}">异常检测</text>
+            </div>
+            <div class="tabButton" id="PageButton2" onclick="switchPages('Page2')">
+                <image src="/common/images/Page2_Black.png" class="icon {{ pages.Page2.icon[0] }}"></image>
+                <image src="/common/images/Page2_Blue.png" class="icon {{ pages.Page2.icon[1] }}"></image>
+                <text class="bottomTex {{ pages.Page2.color }}">历史记录</text>
+            </div>
+        </tab-bar>
+    </tabs>
+</div>

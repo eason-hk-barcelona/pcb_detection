@@ -1,0 +1,366 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #F1F3F5;
+    font-family: 'Roboto';
+}
+
+.tabButton {
+    width:25%;
+    flex-direction: column; /* 设置为垂直方向排列 */
+    align-items: center;    /* 图标和文字水平居中 */
+    justify-content: center;
+    padding: 0px;
+    border-radius: 8px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.tabBar {
+    height:10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottomTex {
+    font-size: 15px;
+}
+
+/* 底部按钮选择动画 */
+.SelectedColor{
+    color:#012399;
+}
+
+.hidden{
+    display: none;
+}
+
+#Page0 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 15px;
+    background-color: #ecf0f1;
+}
+
+.rtsp {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.rtsp text {
+    font-size: 23px;
+}
+
+.rtsp .monitor {
+    padding: 5px;
+}
+
+.rtsp .monitor image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.historyImage {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+}
+/* lastImage 历史记录 */
+.historyImage text {
+    font-size: 23px;
+}
+
+.historyImage .lastImage {
+    width: 100%;
+    height: 80%;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.historyImage .lastImage image {
+    border-radius: 10px;
+}
+
+.recentImagesContainer {
+    width: 100%;
+    height: 20%;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
+.recentImages {
+    width: 100%;
+    height: 100%;
+}
+
+.imageGroup {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.imageGroup image {
+    width: 31%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.imageGroup image:hover {
+    transform: scale(1.05);
+}
+
+.full-screen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.full-screen-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+#loadingProgress {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 6px;
+}
+
+/* Page1 Camera */
+#Page1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Page1Title{
+    width:100%;
+    display: flex;
+    align-items: center;    /* 图标和文字水平居中 */
+    justify-content: center;
+}
+
+#Page1Title text{
+    font-size: 25px;
+}
+
+.cameraContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    background-color: transparent;
+}
+
+#camera{
+    height:100%;
+    width:100%;
+}
+
+.shoot{
+    width:100px;
+    height: 50px;
+}
+
+/* Page2 */
+#Page2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+#Page2Title {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#Page2TitleText {
+    margin-left: 6px;
+    font-size: 18px;
+    position: relative;
+}
+
+.input-search {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 25%;
+    left: 32.5%;
+    z-index: 5;
+}
+#Page2Input{
+    margin: 10px;
+    width: 60%;
+    font-size: 15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+}
+#Page2Button{
+    width: 20%;
+    padding: 2px;
+    margin-right: 6px;
+}
+.divider {
+    stroke-width: 2px;
+    color: whitesmoke;
+}
+.listItem{
+    height: 70px;
+    margin: 0px 10px 5px 10px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 3px 0;
+    z-index: 100;
+}
+
+.listItem .ld{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 25px;
+    width:100%;
+    height:100%;
+}
+.ld .bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 50%;
+    color: white;
+    background-color: #3484ed;
+    border-radius: 25px;
+}
+.ld .listItemIndex{
+    font-size: 20px;
+}
+
+.ld .imageName{
+    font-size: 22px;
+    margin-left: 20px;
+}
+.ld .right {
+    display: flex;
+    justify-content: center;
+}
+.ld .right .right-arrow{
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.ld .errorNum{
+    font-size: 23px;
+    color: #E02020;
+}
+
+
+.dialogClass{
+    position: absolute;
+    bottom: 0%;
+    width: 80%;
+    height: 200px;
+}
+.dialogClass .cueContent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e8ebec;
+    border-radius: 27px;
+}
+
+.cueContent .newPcb {
+    margin-bottom: 22px;
+    font-size: 23px;
+}
+
+.cueContent .newDialog {
+    font-size: 21px;
+}
+@keyframes buttonSelectedColor{
+    from {
+        color: red;
+    }
+    to {
+        color: black;
+    }
+}
+
+@media screen and (device-type: tablet) and (orientation: landscape) {
+    .title {
+        font-size: 100px;
+    }
+}
+@media screen and (device-type: wearable) {
+    .title {
+        font-size: 28px;
+        color: #FFFFFF;
+    }
+}
+@media screen and (device-type: tv) {
+    .container {
+        background-image: url("/common/images/Wallpaper.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .title {
+        font-size: 100px;
+        color: #FFFFFF;
+    }
+}
+@media screen and (device-type: phone) and (orientation: landscape) {
+    .title {
+        font-size: 60px;
+    }
+}
