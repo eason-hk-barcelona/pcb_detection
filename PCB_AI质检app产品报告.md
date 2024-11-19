@@ -2,7 +2,7 @@
 
 ## 功能介绍
 
-质检app运行环境为HarmonyOS 4.0.0，api版本是6，采用JS FA模型开发，可针对Mouse_bite、Open_circuit、Short、、Spurious_copper等瑕疵类型的pcb板进行瑕疵检测。整个 app 共分为历史速览、异常检测、历史记录三大模块
+质检app运行环境为HarmonyOS 4.0.0，api版本是6，采用JS FA模型开发，可针对Mouse_bite、Open_circuit、Short、Spur、Spurious_copper等瑕疵类型的pcb板进行瑕疵检测。整个 app 共分为历史速览、异常检测、历史记录三大模块
 
 ### 异常检测
 
